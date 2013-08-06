@@ -75,11 +75,17 @@ task :wordpress => 'wordpress:deploy'
 
 namespace :wordpress do
 	
+	task :setup do
+		puts "In setup"
+		sh %{ cap deploy:setup } if ENV['RUNSETUP']
+	end
+
 	task :fetch_cap do
 		#something
 	end
 
-	task :deploy => [:fetch_cap] do
-		#somestuff
+	task :deploy => [:fetch_cap, :setup] do
+		puts "In deploy"
+		sh %{ cap deploy }
 	end
 end
