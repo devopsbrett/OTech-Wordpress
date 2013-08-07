@@ -81,7 +81,7 @@ namespace :wordpress do
 	task :setup => [:createdb] do
 		@builddir = File.join(ENV['WORKSPACE'], 'build')
 		Dir.mkdir(@builddir) unless Dir.exists?(@builddir)
-		if ENV['RUNSETUP']
+		if ENV['RUNSETUP'] and ENV['RUNSETUP'] == true
 			sh %{ cap deploy:setup } 
 			@saltlist = URI.parse("https://api.wordpress.org/secret-key/1.1/salt/").read
 			template = File.read(File.expand_path("../wp-config.php.erb", __FILE__))
