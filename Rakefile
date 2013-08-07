@@ -2,6 +2,7 @@
 
 require 'mysql2'
 require 'open-uri'
+require 'erb'
 
 desc "Create the database if it doesn't exist"
 task :createdb do
