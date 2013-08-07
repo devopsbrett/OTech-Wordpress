@@ -84,6 +84,7 @@ namespace :wordpress do
 		if ENV['RUNSETUP']
 			sh %{ cap deploy:setup } 
 			@saltlist = URI.parse("https://api.wordpress.org/secret-key/1.1/salt/").read
+			@
 			template = File.read(File.expand_path("../wp-config.php.erb", __FILE__))
 			renderer = ERB.new(template)
 			result = renderer.result(binding)
