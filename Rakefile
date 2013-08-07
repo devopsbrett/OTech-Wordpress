@@ -94,7 +94,9 @@ namespace :wordpress do
 	end
 
 	task :fetch_cap do
-		#something
+		puts "INCOMING VARIABLE"
+		puts ENV['RUNSETUP']	
+		puts "DID YOU SEE IT?"
 	end
 
 	task :deploy => [:fetch_cap, :setup] do
