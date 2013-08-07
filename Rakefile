@@ -95,7 +95,7 @@ namespace :wordpress do
 
 	task :fetch_cap do
 		puts "INCOMING VARIABLE"
-		puts ENV['RUNSETUP']	
+		puts ENV['RUNSETUP'].type
 		puts "DID YOU SEE IT?"
 	end
 
