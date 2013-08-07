@@ -89,6 +89,7 @@ namespace :wordpress do
 			result = renderer.result(binding)
 
 			File.open(File.expand_path("../build/wp-config.php", __FILE__), 'w') {|f| f.write(result)}
+			sh %{ cap wordpress:upload_config }
 		end
 	end
 
